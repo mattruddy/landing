@@ -28,15 +28,11 @@ const PWA = ({
           content={`https://info.progressiveapp.store/pwa/${name}`}
           key="og-url"
         />
-        <meta property="title" content={app.name} key="title" />
+        <meta name="title" content={app.name} key="title" />
+        <meta name="description" content={app.description} key="description" />
+        <meta name="image" content={app.icon} key="image" />
         <meta
-          property="description"
-          content={app.description}
-          key="description"
-        />
-        <meta property="image" content={app.icon} key="image" />
-        <meta
-          property="url"
+          name="url"
           content={`https://info.progressiveapp.store/pwa/${name}`}
           key="url"
         />
