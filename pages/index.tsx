@@ -4,10 +4,11 @@ import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import { Navbar, NavbarBrand } from "react-bootstrap"
+import Layout from "../components/Layout"
 
 const Home = () => {
   return (
-    <div className="container">
+    <Layout>
       <Head>
         <title>Progressive App Store</title>
         <link rel="icon" href="/favicon.ico" />
@@ -39,7 +40,7 @@ const Home = () => {
       <style jsx>{``}</style>
 
       <style jsx global>{``}</style>
-    </div>
+    </Layout>
   )
 }
 

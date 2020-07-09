@@ -1,12 +1,14 @@
 import "bootstrap/dist/css/bootstrap.min.css"
+import Link from "next/link"
 import Head from "next/head"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
+import Layout from "../components/Layout"
 
-export default function Store() {
+const Store = () => {
   return (
-    <div className="container">
+    <Layout>
       <Head>
         <title>Store</title>
         <link rel="icon" href="/favicon.ico" />
@@ -15,13 +17,17 @@ export default function Store() {
       <main>
         <div className="nav">
           <h1>yoyo</h1>
-          <a href="/">home</a>
+          <Link href="/">
+            <a>home</a>
+          </Link>
         </div>
       </main>
 
       <footer></footer>
 
       <style jsx>{``}</style>
-    </div>
+    </Layout>
   )
 }
+
+export default Store
