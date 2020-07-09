@@ -10,14 +10,18 @@ const PWA = ({
   name,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   useEffect(() => {
-    // window.location.href = `https://progressiveapp.store/pwa/${name}`
+    window.location.href = `https://progressiveapp.store/pwa/${name}`
   }, [])
 
   return (
     <Layout>
       <Head>
         <meta property="og:title" content={app.name} key="title" />
-        <meta property="og:description" content={app.about} key="description" />
+        <meta
+          property="og:description"
+          content={app.description}
+          key="description"
+        />
         <meta property="og:image" content={app.icon} key="image" />
         <meta
           property="og:url"
