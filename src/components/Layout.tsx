@@ -33,7 +33,7 @@ const Layout = ({ children, title, description, image, url }: Props) => {
           content={image ?? defaultImage}
           key="og-image"
         />
-        <meta property="og:url" content={url ? url : defaultUrl} key="og-url" />
+        <meta property="og:url" content={url ?? defaultUrl} key="og-url" />
         <meta
           name="title"
           content={title ?? "Progressive App Store"}
@@ -45,7 +45,37 @@ const Layout = ({ children, title, description, image, url }: Props) => {
           key="description"
         />
         <meta name="image" content={image ?? defaultImage} key="image" />
-        <meta name="url" content={url ? url : defaultUrl} key="url" />
+        <meta name="url" content={url ?? defaultUrl} key="url" />
+        <meta
+          property="twitter:title"
+          content={title ?? defaultTitle}
+          key="twitter-title"
+        />
+        <meta
+          property="twitter:description"
+          content={description ?? defaultDescription}
+          key="twitter-description"
+        />
+        <meta
+          property="twitter:image:src"
+          content={image ?? defaultImage}
+          key="twitter-image"
+        />
+        <meta
+          property="twitter:site"
+          content="Progressive App Store"
+          key="twitter-site"
+        />
+        <meta
+          property="twitter:image:height"
+          content="600"
+          key="twitter-height"
+        />
+        <meta
+          property="twitter:image:width"
+          content="600"
+          key="twitter-width"
+        />
       </Head>
       {children}
     </div>
