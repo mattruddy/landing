@@ -36,6 +36,32 @@ const PWA = ({
           content={`https://info.progressiveapp.store/pwa/${name}`}
           key="url"
         />
+        <meta property="twitter:title" content={app.name} key="twitter-title" />
+        <meta
+          property="twitter:description"
+          content={app.description}
+          key="twitter-description"
+        />
+        <meta
+          property="twitter:image:src"
+          content={app.icon}
+          key="twitter-image"
+        />
+        <meta
+          property="twitter:site"
+          content="Progressive App Store"
+          key="twitter-site"
+        />
+        <meta
+          property="twitter:image:height"
+          content="600"
+          key="twitter-height"
+        />
+        <meta
+          property="twitter:image:width"
+          content="600"
+          key="twitter-width"
+        />
       </Head>
     </Layout>
   )
