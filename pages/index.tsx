@@ -5,14 +5,13 @@ import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
 import { Navbar, NavbarBrand } from "react-bootstrap"
 
-export default function Home() {
+const Home = () => {
   return (
     <div className="container">
       <Head>
         <title>Progressive App Store</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-
       <main>
         <Navbar>
           <NavbarBrand>
@@ -43,3 +42,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default Home
