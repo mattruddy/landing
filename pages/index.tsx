@@ -12,9 +12,10 @@ const Home = () => {
         <title>Progressive App Store</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Navbar>
-        <NavbarBrand>
-          <img src="/logo.png" height="50px" /> Albattross
+      <Navbar className="nav">
+        <NavbarBrand className="HomeNavBrand">
+          <img style={{ marginRight: "16px" }} src="/logo.png" height="50px" />
+          <h1>Albattross</h1>
         </NavbarBrand>
       </Navbar>
       <Container>
@@ -24,10 +25,10 @@ const Home = () => {
         <Row>
           <Col xs={12} md={6}>
             {" "}
-            hello
+            Progressive App Store
           </Col>
           <Col xs={12} md={6}>
-            yo
+            Sights API
           </Col>
         </Row>
       </Container>

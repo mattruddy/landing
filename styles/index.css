@@ -7,3 +7,12 @@
   overflow: hidden;
   z-index: 0;
 }
+
+.nav {
+  border-bottom: 1px solid;
+}
+
+.HomeNavBrand {
+  display: flex;
+  align-items: center;
+}
