@@ -15,7 +15,7 @@ const Dev = ({
   name,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) => {
   useEffect(() => {
-    //window.location.href = `https://progressiveapp.store/pwa/${name}`
+    window.location.href = `https://progressiveapp.store/pwa/${name}`
   }, [])
 
   return (
