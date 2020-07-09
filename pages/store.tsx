@@ -1,4 +1,3 @@
-import "bootstrap/dist/css/bootstrap.min.css"
 import Link from "next/link"
 import Head from "next/head"
 import Container from "react-bootstrap/Container"
