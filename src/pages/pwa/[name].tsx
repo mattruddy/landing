@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import Layout from "../../components/Layout"
-import Head from "next/head"
 import { InferGetServerSidePropsType, GetServerSideProps } from "next"
 import { PWA as PWAType } from "../../util/types"
 
@@ -9,8 +8,6 @@ interface DataProps {
   name: string
 }
 
-// For info on server side props:
-// https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering
 const PWA = ({
   app,
   name,
