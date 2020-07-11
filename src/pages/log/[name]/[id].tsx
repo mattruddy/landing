@@ -21,7 +21,9 @@ const DevLog = ({
 
   return (
     <Layout
-      title={`DevLog - ${devLog.appName} - ${dateFormatter(devLog.loggedAt)}`}
+      title={`DevLog - ${devLog.appName} - ${dateFormatter(
+        new Date(devLog.loggedAt)
+      )}`}
       url={`https://info.progressiveapp.store/log/${name}/${id}`}
       image={devLog.icon}
       description={`Check out ${devLog.appName}'s DevLog!`}
