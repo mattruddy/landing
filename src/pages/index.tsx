@@ -2,8 +2,9 @@ import Head from "next/head"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import { Navbar, NavbarBrand } from "react-bootstrap"
+import { Navbar, NavbarBrand, Card } from "react-bootstrap"
 import Layout from "../components/Layout"
+import Link from "next/link"
 
 const Home = () => {
   return (
@@ -25,7 +26,14 @@ const Home = () => {
         <Row>
           <Col xs={12} md={6}>
             {" "}
-            Progressive App Store
+            <h1>Progressive App Store</h1>
+            <Card>
+              <Link href="pwa/Progressive-App-Store">
+                <a>
+                  <h2>Here is a link to an app</h2>
+                </a>
+              </Link>
+            </Card>
           </Col>
           <Col xs={12} md={6}>
             Sights API
