@@ -23,6 +23,7 @@ const Layout = ({ children, title, description, image, url }: Props) => {
           content={title ?? defaultTitle}
           key="og-title"
         />
+        <meta property="og:type" content="article" />
         <meta
           property="og:description"
           content={description ?? defaultDescription}
@@ -46,6 +47,7 @@ const Layout = ({ children, title, description, image, url }: Props) => {
         />
         <meta name="image" content={image ?? defaultImage} key="image" />
         <meta name="url" content={url ?? defaultUrl} key="url" />
+        <meta name="twitter:card" content="summary" />
         <meta
           property="twitter:title"
           content={title ?? defaultTitle}
@@ -68,12 +70,12 @@ const Layout = ({ children, title, description, image, url }: Props) => {
         />
         <meta
           property="twitter:image:height"
-          content="600"
+          content="1200"
           key="twitter-height"
         />
         <meta
           property="twitter:image:width"
-          content="600"
+          content="1200"
           key="twitter-width"
         />
       </Head>
