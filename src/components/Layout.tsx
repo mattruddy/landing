@@ -48,7 +48,6 @@ const Layout = ({ children, title, description, image, url }: Props) => {
         <meta name="image" content={image ?? defaultImage} key="image" />
         <meta name="url" content={url ?? defaultUrl} key="url" />
         <meta name="twitter:card" content="summary" />
-
         <meta
           property="twitter:title"
           content={title ?? defaultTitle}
