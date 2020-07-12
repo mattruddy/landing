@@ -35,7 +35,10 @@ const Home = () => {
               <p className="lead-2">
                 World's largest store of developer made web apps.
               </p>
-              <Button href={`${storeUris.base}${storeUris.login}`}>
+              <Button
+                className="btn btn-lg btn-main"
+                href={`${storeUris.base}${storeUris.login}`}
+              >
                 Sign Up
               </Button>
             </Col>
@@ -97,8 +100,8 @@ const Home = () => {
             </Col>
             <Col xs={12}>
               <ButtonGroup>
-                <Button>Login</Button>
-                <Button>Sign Up</Button>
+                <Button className="btn btn-lg btn-xxl btn-main">Login</Button>
+                <Button className="btn btn-lg btn-xxl btn-sec">Sign Up</Button>
               </ButtonGroup>
             </Col>
           </Row>
