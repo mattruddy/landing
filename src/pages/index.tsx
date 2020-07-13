@@ -28,7 +28,7 @@ const Home = () => {
 
   useEffect(() => {
     const scrollYMax = document.body.scrollHeight - window.innerHeight
-    if (duration) {
+    if (duration !== NaN) {
       setFrame((scrollY / scrollYMax) * duration)
     }
   }, [scrollY])
@@ -83,7 +83,7 @@ const Home = () => {
               }}
             >
               <video playsInline ref={videoRef} preload="metadata">
-                <source src="/videos/devlog.mp4" />
+                <source src="https://landing-pastore.s3.amazonaws.com/devlog.mp4" />
               </video>
             </a.div>
           </Col>

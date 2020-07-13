@@ -16,7 +16,7 @@ const useFrameControlledVideo: UseFrameControlledVideoType = (
   const videoRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
-    if (videoRef && videoRef.current && videoRef.current.duration >= frame) {
+    if (videoRef && videoRef.current) {
       try {
         videoRef.current.currentTime = frame
       } catch {
@@ -29,7 +29,7 @@ const useFrameControlledVideo: UseFrameControlledVideoType = (
     if (videoRef && videoRef.current) {
       setDuration(videoRef.current.duration)
     }
-  }, [videoRef])
+  }, [videoRef, videoRef.current?.duration])
 
   return { videoRef, duration, setFrame }
 }
