@@ -2,37 +2,13 @@ import Head from "next/head"
 import Container from "react-bootstrap/Container"
 import Row from "react-bootstrap/Row"
 import Col from "react-bootstrap/Col"
-import { Navbar, NavbarBrand, Card, Button, ButtonGroup } from "react-bootstrap"
+import { Navbar, NavbarBrand, Button, ButtonGroup } from "react-bootstrap"
 import Layout from "../components/Layout"
-import Link from "next/link"
 import { storeUris } from "../util/links"
 import Branding from "../util/banding"
-import { useSpring, animated as a, interpolate } from "react-spring"
-import { useCallback, useEffect } from "react"
-import useFrameControlledVideo from "../hook/useFrameControlledVideo"
-import useScrollPosition from "@react-hook/window-scroll"
+import VideoScrollRow from "../components/VideoScrollRow"
 
 const Home = () => {
-  const { videoRef, duration, setFrame } = useFrameControlledVideo(0)
-  const [{ x, y }, set] = useSpring(() => ({ x: 0, y: 0 }))
-  const scrollY = useScrollPosition(60)
-  const interpVideo = interpolate(
-    [x, y],
-    (x, y) => `translate3d(${-x / 50}px,${-y / 50}px,0)`
-  )
-  const onMove = useCallback(
-    ({ clientX: x, clientY: y }) =>
-      set({ x: x - window.innerWidth / 2, y: y - window.innerHeight / 2 }),
-    []
-  )
-
-  useEffect(() => {
-    const scrollYMax = document.body.scrollHeight - window.innerHeight
-    if (duration !== NaN) {
-      setFrame((scrollY / scrollYMax) * duration)
-    }
-  }, [scrollY])
-
   return (
     <Layout>
       <Head>
@@ -64,61 +40,12 @@ const Home = () => {
           </Col>
         </Row>
       </div>
-      <div onMouseMove={onMove} className="container-fluid pb-5 bg-alternate">
-        <Row>
-          <Col
-            xs={12}
-            md={8}
-            className="text-center video-landing-small pl-5 mt-5"
-            style={{ position: "sticky", top: "82px" }}
-          >
-            <a.div
-              style={{
-                transform: interpVideo,
-                position: "sticky",
-                top: "82px",
-              }}
-            >
-              <video playsInline ref={videoRef} preload="metadata">
-                <source src="https://landing-pastore.s3.amazonaws.com/devlog.mp4" />
-              </video>
-            </a.div>
-          </Col>
-          <Col xs={12} md={4} className="pl-5">
-            <div className="col-space-block" />
-            <h5 className="text-center text-md-left lead-5 fw-600">
-              Add DevLog
-            </h5>
-            <p className="lead-2 text-center text-md-left">
-              Just enter your app and a quick markdown body.
-            </p>
-            <div className="col-space-block" />
-            <div className="col-space-block" />
-            <h5 className="text-center text-md-left lead-5 fw-600">
-              Add DevLog
-            </h5>
-            <p className="lead-2 text-center text-md-left">
-              Just enter your app and a quick markdown body.
-            </p>
-            <div className="col-space-block" />
-            <div className="col-space-block" />
-            <h5 className="text-center text-md-left lead-5 fw-600">
-              Add DevLog
-            </h5>
-            <p className="lead-2 text-center text-md-left">
-              Just enter your app and a quick markdown body.
-            </p>
-            <div className="col-space-block" />
-            <div className="col-space-block" />
-            <h5 className="text-center text-md-left lead-5 fw-600">
-              Add DevLog
-            </h5>
-            <p className="lead-2 text-center text-md-left">
-              Just enter your app and a quick markdown body.
-            </p>
-            <div className="col-space-block" />
-          </Col>
-        </Row>
+      <div className="container-fluid pb-5 bg-alternate">
+        <VideoScrollRow src="https://landing-pastore.s3.amazonaws.com/devlog.mp4" />
+        <div className="space-block" />
+      </div>
+      <div className="container-fluid pb-5 bg-alternate">
+        <VideoScrollRow src="https://cdn.discordapp.com/attachments/729739778827747339/731980039578583050/intro.mp4" />
         <div className="space-block" />
       </div>
       <Row className="row-gap-y text-center text-default justify-content-md-center mt-5">
