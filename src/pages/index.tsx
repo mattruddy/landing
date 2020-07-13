@@ -74,6 +74,21 @@ const Home = () => {
           </p>
         </header>
         <Row>
+          <Col
+            xs={12}
+            md={8}
+            className="text-center video-landing-small"
+            style={{ position: "sticky", top: "82px" }}
+          >
+            <video
+              autoPlay
+              loop
+              playsInline
+              style={{ position: "sticky", top: "82px" }}
+            >
+              <source src="/videos/devlog.mp4" />
+            </video>
+          </Col>
           <Col xs={12} md={4} className="pl-5">
             <h5 className="text-center text-md-left lead-5 fw-600">
               Add DevLog
@@ -102,16 +117,6 @@ const Home = () => {
             <p className="lead-2 text-center text-md-left">
               Just enter your app and a quick markdown body.
             </p>
-          </Col>
-          <Col xs={12} md={8} className="text-center video-landing-small">
-            <video
-              autoPlay
-              loop
-              playsInline
-              style={{ position: "sticky", top: "82px" }}
-            >
-              <source src="/videos/devlog.mp4" />
-            </video>
           </Col>
         </Row>
         <div className="space-block" />
