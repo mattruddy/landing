@@ -28,7 +28,9 @@ const Home = () => {
 
   useEffect(() => {
     const scrollYMax = document.body.scrollHeight - window.innerHeight
-    setFrame((scrollY / scrollYMax) * duration)
+    if (duration) {
+      setFrame((scrollY / scrollYMax) * duration)
+    }
   }, [scrollY])
 
   return (
