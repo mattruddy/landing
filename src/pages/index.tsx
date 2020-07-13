@@ -8,10 +8,14 @@ import Link from "next/link"
 import { storeUris } from "../util/links"
 import Branding from "../util/banding"
 import { useSpring, animated as a, interpolate } from "react-spring"
-import { useCallback } from "react"
+import { useCallback, useEffect } from "react"
+import useFrameControlledVideo from "../hook/useFrameControlledVideo"
+import useScrollPosition from "@react-hook/window-scroll"
 
 const Home = () => {
+  const { videoRef, duration, setFrame } = useFrameControlledVideo(0)
   const [{ x, y }, set] = useSpring(() => ({ x: 0, y: 0 }))
+  const scrollY = useScrollPosition(60)
   const interpVideo = interpolate(
     [x, y],
     (x, y) => `translate3d(${-x / 50}px,${-y / 50}px,0)`
@@ -22,7 +26,10 @@ const Home = () => {
     []
   )
 
-  console.log({ x, y })
+  useEffect(() => {
+    const scrollYMax = document.body.scrollHeight - window.innerHeight
+    setFrame((scrollY / scrollYMax) * duration)
+  }, [scrollY])
 
   return (
     <Layout>
@@ -38,7 +45,7 @@ const Home = () => {
           </NavbarBrand>
         </Container>
       </Navbar>
-      <div onMouseMove={onMove} className="container-fluid">
+      <div className="container-fluid">
         <Row className="header pb-5">
           <Col
             xs={12}
@@ -56,46 +63,29 @@ const Home = () => {
               Sign Up
             </Button>
           </Col>
-          <Col xs={12} className="ml-auto mt-5 video-landing-full">
-            <a.div style={{ transform: interpVideo }}>
-              <video autoPlay loop playsInline>
-                <source src="/videos/devlog.mp4" />
-              </video>
-            </a.div>
-          </Col>
         </Row>
       </div>
-      <div className="container-fluid pb-5 bg-alternate">
-        <header className="section-header mt-5">
-          <h1 className="lead-5 fw-600">Follow Your Favorate Web Apps</h1>
-          <p className="lead-4">
-            Developers can post DevLogs to update you on behind the scenes
-            developerment.
-          </p>
-        </header>
+      <div onMouseMove={onMove} className="container-fluid pb-5 bg-alternate">
         <Row>
           <Col
             xs={12}
             md={8}
-            className="text-center video-landing-small"
+            className="text-center video-landing-small pl-5 mt-5"
             style={{ position: "sticky", top: "82px" }}
           >
-            <video
-              autoPlay
-              loop
-              playsInline
-              style={{ position: "sticky", top: "82px" }}
+            <a.div
+              style={{
+                transform: interpVideo,
+                position: "sticky",
+                top: "82px",
+              }}
             >
-              <source src="/videos/devlog.mp4" />
-            </video>
+              <video playsInline ref={videoRef}>
+                <source src="/videos/devlog.mp4" />
+              </video>
+            </a.div>
           </Col>
           <Col xs={12} md={4} className="pl-5">
-            <h5 className="text-center text-md-left lead-5 fw-600">
-              Add DevLog
-            </h5>
-            <p className="lead-2 text-center text-md-left">
-              Just enter your app and a quick markdown body.
-            </p>
             <div className="col-space-block" />
             <h5 className="text-center text-md-left lead-5 fw-600">
               Add DevLog
@@ -104,12 +94,6 @@ const Home = () => {
               Just enter your app and a quick markdown body.
             </p>
             <div className="col-space-block" />
-            <h5 className="text-center text-md-left lead-5 fw-600">
-              Add DevLog
-            </h5>
-            <p className="lead-2 text-center text-md-left">
-              Just enter your app and a quick markdown body.
-            </p>
             <div className="col-space-block" />
             <h5 className="text-center text-md-left lead-5 fw-600">
               Add DevLog
@@ -117,6 +101,23 @@ const Home = () => {
             <p className="lead-2 text-center text-md-left">
               Just enter your app and a quick markdown body.
             </p>
+            <div className="col-space-block" />
+            <div className="col-space-block" />
+            <h5 className="text-center text-md-left lead-5 fw-600">
+              Add DevLog
+            </h5>
+            <p className="lead-2 text-center text-md-left">
+              Just enter your app and a quick markdown body.
+            </p>
+            <div className="col-space-block" />
+            <div className="col-space-block" />
+            <h5 className="text-center text-md-left lead-5 fw-600">
+              Add DevLog
+            </h5>
+            <p className="lead-2 text-center text-md-left">
+              Just enter your app and a quick markdown body.
+            </p>
+            <div className="col-space-block" />
           </Col>
         </Row>
         <div className="space-block" />
