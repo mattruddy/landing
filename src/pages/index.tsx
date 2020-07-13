@@ -42,8 +42,8 @@ const Home = () => {
       <Navbar className="navbar navbar-expand-md navbar-default" sticky="top">
         <Container>
           <NavbarBrand className="HomeNavBrand">
-            <img src="/store.png" height="50px" className="logo-header" />
-            <h1 className="pl-3">{Branding.storeName}</h1>
+            <img src="/store-blue.png" height="50px" className="logo-header" />
+            <p className="pl-3">{Branding.storeName}</p>
           </NavbarBrand>
         </Container>
       </Navbar>
@@ -54,15 +54,12 @@ const Home = () => {
             className="align-self-center ml-auto mb-5 text-center pl-3 pr-3"
           >
             {" "}
-            <h1 className="fw-600">Progressive App Store</h1>
+            <h1 className="fw-600">Discover and Follow Developer Apps</h1>
             <p className="lead-2">
               World's largest store of developer made web apps.
             </p>
-            <Button
-              className="btn btn-lg btn-main"
-              href={`${storeUris.base}${storeUris.login}`}
-            >
-              Sign Up
+            <Button className="btn btn-lg btn-main" href={`${storeUris.base}`}>
+              Check It Out
             </Button>
           </Col>
         </Row>

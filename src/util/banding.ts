@@ -1,5 +1,5 @@
 const Branding = {
-  storeName: "ProgressApp.Store",
+  storeName: "ProgressiveApp.Store",
 }
 
 export default Branding

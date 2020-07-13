@@ -156,7 +156,7 @@ body {
   align-items: center;
 }
 
-.HomeNavBrand h1 {
+.HomeNavBrand p {
   color: var(--brand-color);
   margin-bottom: 0rem;
 }
@@ -279,8 +279,8 @@ html {
 }
 
 .logo-header {
-  opacity: 0.5;
-  filter: contrast(0%);
+  width: 20px;
+  height: 20px;
 }
 
 .logo-footer {
@@ -334,8 +334,21 @@ html {
   border-color: var(--main-action-color);
 }
 
+.btn-main:hover {
+  border-color: var(--main-action-color);
+}
+
+.btn:hover {
+  color: var(--type-color);
+  background-color: transparent;
+}
+
 .btn-sec {
   color: var(--dark);
   background-color: var(--secondary-action-color);
+  border-color: var(--secondary-action-color);
+}
+
+.btn-sec:hover {
   border-color: var(--secondary-action-color);
 }
