@@ -7,8 +7,23 @@ import Layout from "../components/Layout"
 import Link from "next/link"
 import { storeUris } from "../util/links"
 import Branding from "../util/banding"
+import { useSpring, animated as a, interpolate } from "react-spring"
+import { useCallback } from "react"
 
 const Home = () => {
+  const [{ x, y }, set] = useSpring(() => ({ x: 0, y: 0 }))
+  const interpVideo = interpolate(
+    [x, y],
+    (x, y) => `translate3d(${-x / 50}px,${-y / 50}px,0)`
+  )
+  const onMove = useCallback(
+    ({ clientX: x, clientY: y }) =>
+      set({ x: x - window.innerWidth / 2, y: y - window.innerHeight / 2 }),
+    []
+  )
+
+  console.log({ x, y })
+
   return (
     <Layout>
       <Head>
@@ -23,91 +38,96 @@ const Home = () => {
           </NavbarBrand>
         </Container>
       </Navbar>
-      <section>
-        <div className="container-fluid">
-          <Row className="header pb-5">
-            <Col
-              xs={12}
-              className="align-self-center ml-auto mb-5 text-center pl-3 pr-3"
+      <div onMouseMove={onMove} className="container-fluid">
+        <Row className="header pb-5">
+          <Col
+            xs={12}
+            className="align-self-center ml-auto mb-5 text-center pl-3 pr-3"
+          >
+            {" "}
+            <h1 className="fw-600">Progressive App Store</h1>
+            <p className="lead-2">
+              World's largest store of developer made web apps.
+            </p>
+            <Button
+              className="btn btn-lg btn-main"
+              href={`${storeUris.base}${storeUris.login}`}
             >
-              {" "}
-              <h1 className="fw-600">Progressive App Store</h1>
-              <p className="lead-2">
-                World's largest store of developer made web apps.
-              </p>
-              <Button
-                className="btn btn-lg btn-main"
-                href={`${storeUris.base}${storeUris.login}`}
-              >
-                Sign Up
-              </Button>
-            </Col>
-            <Col xs={12} className="ml-auto mt-5 video-landing-full">
+              Sign Up
+            </Button>
+          </Col>
+          <Col xs={12} className="ml-auto mt-5 video-landing-full">
+            <a.div style={{ transform: interpVideo }}>
               <video autoPlay loop playsInline>
                 <source src="/videos/devlog.mp4" />
               </video>
-            </Col>
-          </Row>
-        </div>
-      </section>
-      <main>
-        <section className="section bg-alternate overflow-hidden">
-          <div className="container-fluid pb-5">
-            <header className="section-header mt-5">
-              <h1 className="lead-5 fw-600">Follow Your Favorate Web Apps</h1>
-              <p className="lead-4">
-                Developers can post DevLogs to update you on behind the scenes
-                developerment.
-              </p>
-            </header>
-            <Row className="align-items-center">
-              <Col xs={12} md={4} className="pl-5">
-                <h5 className="text-center text-md-left lead-5 fw-600">
-                  Add DevLog
-                </h5>
-                <p className="lead-2 text-center text-md-left">
-                  Just enter your app and a quick markdown body.
-                </p>
-              </Col>
-              <Col xs={12} md={8} className="text-center video-landing-small">
-                <video autoPlay loop playsInline>
-                  <source src="/videos/devlog.mp4" />
-                </video>
-              </Col>
-            </Row>
-            <div className="space-block" />
-            <Row className="align-items-center">
-              <Col xs={12} md={8} className="text-center video-landing-small">
-                <video autoPlay loop playsInline>
-                  <source src="/videos/devlog.mp4" />
-                </video>
-              </Col>
-              <Col xs={12} md={4} className="pl-5">
-                <h5 className="text-center text-md-left lead-5 fw-600">
-                  Add DevLog
-                </h5>
-                <p className="lead-2 text-center text-md-left">
-                  Just enter your app and a quick markdown body.
-                </p>
-              </Col>
-            </Row>
-          </div>
-        </section>
-        <section className="section pt-5">
-          <Row className="row-gap-y text-center text-default justify-content-md-center mt-5">
-            <Col xs={12}>
-              <h5 className="lead-3">Login or Sign up now!</h5>
-            </Col>
-            <Col xs={12}>
-              <ButtonGroup>
-                <Button className="btn btn-lg btn-xxl btn-main">Login</Button>
-                <Button className="btn btn-lg btn-xxl btn-sec">Sign Up</Button>
-              </ButtonGroup>
-            </Col>
-          </Row>
-        </section>
+            </a.div>
+          </Col>
+        </Row>
+      </div>
+      <div className="container-fluid pb-5 bg-alternate">
+        <header className="section-header mt-5">
+          <h1 className="lead-5 fw-600">Follow Your Favorate Web Apps</h1>
+          <p className="lead-4">
+            Developers can post DevLogs to update you on behind the scenes
+            developerment.
+          </p>
+        </header>
+        <Row>
+          <Col xs={12} md={4} className="pl-5">
+            <h5 className="text-center text-md-left lead-5 fw-600">
+              Add DevLog
+            </h5>
+            <p className="lead-2 text-center text-md-left">
+              Just enter your app and a quick markdown body.
+            </p>
+            <div className="col-space-block" />
+            <h5 className="text-center text-md-left lead-5 fw-600">
+              Add DevLog
+            </h5>
+            <p className="lead-2 text-center text-md-left">
+              Just enter your app and a quick markdown body.
+            </p>
+            <div className="col-space-block" />
+            <h5 className="text-center text-md-left lead-5 fw-600">
+              Add DevLog
+            </h5>
+            <p className="lead-2 text-center text-md-left">
+              Just enter your app and a quick markdown body.
+            </p>
+            <div className="col-space-block" />
+            <h5 className="text-center text-md-left lead-5 fw-600">
+              Add DevLog
+            </h5>
+            <p className="lead-2 text-center text-md-left">
+              Just enter your app and a quick markdown body.
+            </p>
+          </Col>
+          <Col xs={12} md={8} className="text-center video-landing-small">
+            <video
+              autoPlay
+              loop
+              playsInline
+              style={{ position: "sticky", top: "82px" }}
+            >
+              <source src="/videos/devlog.mp4" />
+            </video>
+          </Col>
+        </Row>
         <div className="space-block" />
-      </main>
+      </div>
+      <Row className="row-gap-y text-center text-default justify-content-md-center mt-5">
+        <Col xs={12}>
+          <h5 className="lead-3">Login or Sign up now!</h5>
+        </Col>
+        <Col xs={12}>
+          <ButtonGroup>
+            <Button className="btn btn-lg btn-xxl btn-main">Login</Button>
+            <Button className="btn btn-lg btn-xxl btn-sec">Sign Up</Button>
+          </ButtonGroup>
+        </Col>
+      </Row>
+      <div className="space-block" />
       <footer className="footer">
         <Container>
           <Row>
