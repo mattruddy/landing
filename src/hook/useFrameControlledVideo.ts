@@ -17,7 +17,11 @@ const useFrameControlledVideo: UseFrameControlledVideoType = (
 
   useEffect(() => {
     if (videoRef && videoRef.current) {
-      videoRef.current.currentTime = frame
+      try {
+        videoRef.current.currentTime = frame
+      } catch {
+        console.log("Video not ready yet")
+      }
     }
   }, [frame])
 

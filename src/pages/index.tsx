@@ -80,7 +80,7 @@ const Home = () => {
                 top: "82px",
               }}
             >
-              <video playsInline ref={videoRef}>
+              <video playsInline ref={videoRef} preload="metadata">
                 <source src="/videos/devlog.mp4" />
               </video>
             </a.div>
